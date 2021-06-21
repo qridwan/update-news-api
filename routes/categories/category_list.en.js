@@ -15,4 +15,4 @@ Router.get('/', (req, res) => {
 res.send(categories)
 })
 
-module.exports = Router;
+module.exports = Router, categories;
