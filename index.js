@@ -9,11 +9,9 @@ const SubcategoriesEnList = require("./routes/subcategories/subcategory_list.en"
 const SliderEn = require("./routes/home/slider.en");
 const SubcategoriesEnNews = require("./routes/subcategories/subcategoryNews.en");
 const SubcategoriesEnAcPage = require("./routes/subcategories/subcategory_ac_page.en");
-
+require("dotenv").config();
 const app = express();
-var cors = require("cors");
 
-app.use(cors());
 app.use(express.json());
 
 app.use("/", HomeRoutes);
@@ -29,4 +27,6 @@ app.use(CategoryWiseEnNews);
 app.use(SubcategoriesEnNews)
 app.use(SubcategoriesEnAcPage)
 
-app.listen(5000);
+const port = process.env.PORT || 5000;
+
+app.listen(port);
