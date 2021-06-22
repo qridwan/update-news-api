@@ -7,7 +7,7 @@ Router.get("/en/subcategory/:subcategory/:pageNumber", (req, res) => {
   const PageNumber = req.params.pageNumber;
 
  (() => {
-    fetch(`http://localhost:5000/en/tags/subcategory/${getSubcategory}`)
+    fetch(`https://updatenews360.herokuapp.com/en/tags/subcategory/${getSubcategory}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.length);
@@ -16,7 +16,7 @@ Router.get("/en/subcategory/:subcategory/:pageNumber", (req, res) => {
           const news_for_show = data.slice(0, 19);
           res.send(news_for_show);
         } else {
-          const slice_first = 20 * (number - 1);
+          const slice_first = 20 * (+PageNumber - 1);
           const slice_second = slice_first + 19;
           const news_for_show = data.slice(slice_first, slice_second);
           res.send(news_for_show);
