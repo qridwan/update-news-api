@@ -7,7 +7,7 @@ Router.get("/en/category/:category", (req, res) => {
   async function getCategoryNews() {
     let allNews = [];
     for (let i = 1; i < 10 ; i++) {
-      const url = `http://localhost:5000/en/category/${getCategory}/${i}`;
+      const url = `https://updatenews360.herokuapp.com/en/category/${getCategory}/${i}`;
     await fetch(url)
         .then((res) => res.json())
         .then((data) => {
